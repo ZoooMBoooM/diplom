@@ -60,8 +60,6 @@ jobs:
           host: ${{ secrets.VM_HOST }}
           username: ${{ secrets.VM_USER }}
           key: ${{ secrets.VM_SSH_KEY }}
-          fingerprint: ${{ secrets.VM_KNOWN_HOSTS }}
-          script_stop: true
           script: |
             set -e
 
@@ -79,6 +77,7 @@ jobs:
             COMPOSE
 
             docker compose pull
+            docker rm -f diplom-web 2>/dev/null || true
             docker compose up -d --remove-orphans
             docker image prune -f
 
