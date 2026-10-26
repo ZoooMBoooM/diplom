@@ -1,6 +1,6 @@
 .terraform/
 *.tfstate
 *.tfstate.*
-.terraform.lock.hcl
-crash.log
-*.json
+*.tfplan
+.authorized_key.json
+s3-key.json
